@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Head from "next/head"
 
 export default function DetailEvent() {
     const [dataById, setDataById] = useState({})
@@ -8,8 +9,6 @@ export default function DetailEvent() {
     const id = router.query.id
 
     useEffect(() => {
-        console.log(id, "===> APA SIH");
-
         getById()
     }, [id])
 
@@ -18,18 +17,18 @@ export default function DetailEvent() {
             const data = await fetch(`/api/event-id/${id}`)
             const result = await data.json()
             setDataById(result.data)
-            
         } catch (error) {
             console.log(error, "==> ini 2");
-            
         }
     }
-
     
 
     return(
-
         <>
+            <Head>
+                <title>Detail Event Febri {id} | Toyota</title>
+                <meta name="description" content={`Detail event ${id} dari Toyota`} />
+            </Head>
             <h3>This is Detaol Event {id} Toyota</h3>
             <Link href={`/home-event`}>Back</Link>
             <p>{JSON.stringify(dataById)}</p>
