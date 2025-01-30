@@ -116,10 +116,9 @@ export async function GET(request, { params }) {
             }
         ]
 
-        const allData = await fetch("http://localhost:3000/api/event-data")
+        const origin = new URL(request.url).origin;
+        const allData = await fetch(`${origin}/api/event-data`)
         const result2 = await allData.json()
-        console.log(result2, "==> INI ALL DATA");
-        
 
         const resultData = result2.data.find(el => el.id == id)
 
@@ -129,7 +128,6 @@ export async function GET(request, { params }) {
             }),
             {status: 200}
         )
-
         
     } catch (error) {
         console.log(error, "==> INI 1");
