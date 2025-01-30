@@ -27,7 +27,8 @@ export default function DetailEvent() {
         <>
             <Head>
                 <title>Detail Event Febri {id} | Toyota</title>
-                <meta name="description" content={`Detail event ${id} dari Toyota`} />
+                <meta name="description" content={`Detail event ${id} dari Event Toyota`} />
+                <meta name="keywords" content="event, malam minggu, event sabtu" />
             </Head>
             <h3>This is Detaol Event {id} Toyota</h3>
             <Link href={`/home-event`}>Back</Link>
