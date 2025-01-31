@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function HomeEvent() {
     const [dataEvent, setDataEvent] = useState([])
@@ -53,6 +54,12 @@ export default function HomeEvent() {
     }
     return(
         <>
+            <Head>
+                <title>Pak Amjad Kece</title>
+                <meta name="description" content="Page ini untuk menampilkan event-event yang ada di hari minggu"/>
+                <meta name="keywords" content="event, hari minggu, sabtu malam"/>
+            </Head>
+            
             <h1>This is Home Event</h1>
             <form onSubmit={handleOnSubmit}>
                 <label>Search:</label>
